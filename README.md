@@ -24,7 +24,7 @@ print(canvas.draw())
 
 Which results in this output:
 
-```python
+```
     0+-----+                         +-+
     1|Hello|----+               +----|!|
     2+-----+    |               |    +-+

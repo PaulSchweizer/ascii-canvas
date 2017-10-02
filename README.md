@@ -2,7 +2,7 @@
 
 With this primitive library you can do things like this:
 
-´´´python
+```python
 from ascii_canvas.canvas import Canvas
 from ascii_canvas.item import Item, Line
 
@@ -20,11 +20,11 @@ canvas.add_item(rect_c)
 canvas.add_item(line_a)
 canvas.add_item(line_b)
 print(canvas.draw())
-´´´
+```
 
 Which results in this output:
 
-´´´
+```python
     0+-----+                         +-+
     1|Hello|----+               +----|!|
     2+-----+    |               |    +-+
@@ -33,4 +33,4 @@ Which results in this output:
     5           |    +-----+    |
     6           +----|World|----+
     7                +-----+
-´´´
+```

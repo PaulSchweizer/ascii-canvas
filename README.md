@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1e97852797d14c679d7c89337b022c92)](https://www.codacy.com/app/paulschweizer/ascii-canvas?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PaulSchweizer/ascii-canvas&amp;utm_campaign=Badge_Grade)
+
 # Treat strings like Items on a 2D Canvas
 
 With this primitive library you can do things like this:

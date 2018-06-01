@@ -1,6 +1,7 @@
 *____*
 cover
 .coverage
+.pytest*
 
 # Sublime
 *.sublime-project

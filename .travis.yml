@@ -10,6 +10,7 @@ python:
 
 # command to install dependencies
 install:
+    - pip install tox-travis
     - python setup.py install
 
 # command to run tests

@@ -8,10 +8,8 @@ python:
   - "3.5"
   - "3.6"
 
-# command to install dependencies
 install:
-    - pip install tox-travis
     - python setup.py install
 
-# command to run tests
-script: tox
+script:
+    - nosetests --with-coverage --cover-erase --cover-package=ascii_canvas

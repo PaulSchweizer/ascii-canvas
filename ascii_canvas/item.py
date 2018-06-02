@@ -5,10 +5,10 @@ from __future__ import print_function
 class Item(object):
     """Defined by an arbitrary text and a position on the Canvas."""
 
-    def __init__(self, text, position=[0, 0]):
+    def __init__(self, text, position=None):
         """Hold a text and a position."""
         self.text = text
-        self.position = position
+        self.position = position or [0, 0]
 
     @property
     def bbox(self):

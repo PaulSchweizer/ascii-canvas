@@ -50,10 +50,10 @@ class Canvas(object):
                 else:
                     row.insert(0, '{0:4d} |'.format(i))
 
-            canvas.append([" " * 5] +
-                          ["+"] +
-                          ["-" * (self.bbox[0] + self.bbox[2] - 1)] +
-                          [">"])
+            canvas.append([' ' * 5] +
+                          ['+'] +
+                          ['-' * (self.bbox[0] + self.bbox[2] - 1)] +
+                          ['>'])
             horizontal_numbers = [
                 str(n) for n in range(self.bbox[0] + self.bbox[2])]
             for index in range(len(horizontal_numbers[-1])):

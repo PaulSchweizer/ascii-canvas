@@ -50,5 +50,19 @@ class Canvas(object):
                 else:
                     row.insert(0, '{0:4d} |'.format(i))
 
+            canvas.append([" " * 5] +
+                          ["+"] +
+                          ["-" * (self.bbox[0] + self.bbox[2] - 1)] +
+                          [">"])
+            horizontal_numbers = [
+                str(n) for n in range(self.bbox[0] + self.bbox[2])]
+            for index in range(len(horizontal_numbers[-1])):
+                hor_number_row = [" " * 6]
+                for number in horizontal_numbers:
+                    if index < len(number):
+                        hor_number_row.append(number[index])
+                    else:
+                        hor_number_row.append(" ")
+                canvas.append(hor_number_row)
 
         return '\n'.join([''.join(row) for row in canvas])

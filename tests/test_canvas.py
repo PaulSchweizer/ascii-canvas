@@ -3,12 +3,13 @@ import unittest
 from ascii_canvas.canvas import Canvas
 from ascii_canvas.item import Item
 from ascii_canvas.item import Line
+from ascii_canvas.item import Rectangle
 
 
 class TestCanvas(unittest.TestCase):
     """Test the Canvas."""
 
-    def test_render_items_on_canvas(self):
+    def __test_render_items_on_canvas(self):
         """Render the added items correctly."""
         canvas = Canvas()
 
@@ -29,6 +30,34 @@ class TestCanvas(unittest.TestCase):
 
         rendered = canvas.render(line_numbers=True)
         print(rendered)
+
+    def test_rectangle(self):
+        """Render a bunch of rectangles."""
+        canvas = Canvas()
+
+        null_rect = Rectangle(width=0, height=0)
+        canvas.add_item(null_rect)
+
+        null_hor_rect = Rectangle(width=0, height=1, position=[5, 0])
+        canvas.add_item(null_hor_rect)
+
+        null_ver_rect = Rectangle(width=1, height=0, position=[10, 0])
+        canvas.add_item(null_ver_rect)
+
+        three_by_three_quad = Rectangle(width=3, height=3, position=[15, 0])
+        canvas.add_item(three_by_three_quad)
+
+        rect = Rectangle(width=4, height=9, position=[0, 5],
+                         horizontal_border='H', vertical_border='V',
+                         corner='C', fill='F')
+        canvas.add_item(rect)
+
+        rect = Rectangle(width=4, height=5, position=[10, 5],
+                         horizontal_border='.', vertical_border='.',
+                         corner='.', fill=' ')
+        canvas.add_item(rect)
+
+        print(canvas.render(line_numbers=False))
 
 
 if __name__ == '__main__':

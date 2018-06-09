@@ -81,3 +81,60 @@ class Line(Item):
             return self.start
         else:
             return [self.start[0], self.start[1] - self.bbox[3]]
+
+
+class Rectangle(Item):
+    """A rectangle.
+
+    It looks like this:
+    +---+
+    |   |
+    |   |
+    +---+
+    """
+
+    def __init__(self, width, height, position=None,
+                 horizontal_border=None, vertical_border=None,
+                 corner=None, fill=None):
+        """Define the shape, position and render options for the Rectangle."""
+        self.width = width
+        self.height = height
+        self.position = position or [0, 0]
+        self.horizontal_border = horizontal_border or '-'
+        self.vertical_border = vertical_border or '|'
+        self.corner = corner or '+'
+        self.fill = fill or ' '
+
+    @property
+    def text(self):
+        """Width and height have to be at least 1 in order for it to render."""
+        text = ''
+        if not self.width or not self.height:
+            return text
+
+        text += self._horizontal()
+
+        for row in range(self.height - 2):
+            for column in range(self.width):
+                if column == 0:
+                    text += self.vertical_border
+                elif column == self.width - 1:
+                    text += self.vertical_border + '\n'
+                else:
+                    text += self.fill
+
+        text += self._horizontal()
+
+        return text
+
+    def _horizontal(self):
+        """Create a horizontal line."""
+        text = ''
+        for i in range(self.width):
+            if i == 0:
+                text += self.corner
+            elif i == self.width - 1:
+                text += self.corner + '\n'
+            else:
+                text += self.horizontal_border
+        return text

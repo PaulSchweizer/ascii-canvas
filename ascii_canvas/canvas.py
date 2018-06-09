@@ -30,7 +30,7 @@ class Canvas(object):
                 bbox[3] = item.position[1] + item.bbox[3]
         return bbox
 
-    def render(self):
+    def render(self, line_numbers=False):
         """Fill it with placeholders and add the items to it."""
         canvas = []
         for row in range(self.bbox[1] + self.bbox[3]):
@@ -43,6 +43,12 @@ class Canvas(object):
                 for j, s in enumerate(line):
                     if s != ' ':
                         canvas[row][start + j] = s
-        for i, row in enumerate(canvas):
-            row.insert(0, '{0:4d} | '.format(i))
+        if line_numbers:
+            for i, row in enumerate(reversed(canvas)):
+                if i == len(canvas) - 1:
+                    row.insert(0, '{0:4d} ^'.format(i))
+                else:
+                    row.insert(0, '{0:4d} |'.format(i))
+
+
         return '\n'.join([''.join(row) for row in canvas])

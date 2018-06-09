@@ -23,7 +23,11 @@ class TestCanvas(unittest.TestCase):
         canvas.add_item(rect_c)
         canvas.add_item(line_a)
         canvas.add_item(line_b)
-        rendered = canvas.render()
+
+        rendered = canvas.render(line_numbers=False)
+        print(rendered)
+
+        rendered = canvas.render(line_numbers=True)
         print(rendered)
 
 

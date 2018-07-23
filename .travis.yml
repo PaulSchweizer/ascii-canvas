@@ -10,6 +10,13 @@ python:
 
 install:
     - python setup.py install
+    - pip install pytest==3.0.3
+    - pip install pytest-cov==2.5.1
+    - pip install coverage
+    - pip install codacy-coverage
 
 script:
     - coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml --cov-report=term
+
+after_success:
+    - python-codacy-coverage -r coverage.xml

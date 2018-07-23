@@ -12,4 +12,4 @@ install:
     - python setup.py install
 
 script:
-    - nosetests --with-coverage --cover-erase --cover-package=ascii_canvas
+    - coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml --cov-report=term

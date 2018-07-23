@@ -114,7 +114,7 @@ class Rectangle(Item):
 
         text += self._horizontal()
 
-        for row in range(self.height - 2):
+        for _ in range(self.height - 2):
             for column in range(self.width):
                 if column == 0:
                     text += self.vertical_border

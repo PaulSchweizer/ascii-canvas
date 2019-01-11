@@ -3,7 +3,7 @@ from setuptools import find_packages
 
 
 setup(name='ascii-canvas',
-      version='1.0.0',
+      version='1.1.0',
       author='Paul Schweizer',
       author_email='paulschweizer@gmx.net',
       description='Treat strings like Items on a 2D Canvas.',

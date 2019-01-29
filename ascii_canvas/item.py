@@ -1,17 +1,19 @@
 """Items can be placed on the Canvas."""
 from __future__ import print_function
 
+from typing import List
+
 
 class Item(object):
     """Defined by an arbitrary text and a position on the Canvas."""
 
-    def __init__(self, text, position=None):
+    def __init__(self, text: str, position: List[int]=None):
         """Hold a text and a position."""
         self.text = text
         self.position = position or [0, 0]
 
     @property
-    def bbox(self):
+    def bbox(self) -> List[int]:
         """Make the bbox encompass the text."""
         lines = self.text.split('\n')
         return [0, 0, max([len(l) for l in lines]), len(lines)]
@@ -28,20 +30,20 @@ class Line(Item):
                  +--- END
     """
 
-    def __init__(self, start, end):
+    def __init__(self, start: List[int], end: List[int]):
         """Define the line by a start and an end point."""
         self.start = start
         self.end = end
 
     @property
-    def bbox(self):
+    def bbox(self) -> List[int]:
         """Make the bbox encompass the entire line."""
         return [0, 0,
                 abs(self.end[0] - self.start[0]) + 1,
                 abs(self.end[1] - self.start[1]) + 1]
 
     @property
-    def text(self):
+    def text(self) -> str:
         """Create a string representing the line.
 
         1. Go half way horizontally
@@ -75,7 +77,7 @@ class Line(Item):
         return text
 
     @property
-    def position(self):
+    def position(self) -> List[int]:
         """Offset the position if the start is left of the end."""
         if self.start[1] <= self.end[1]:
             return self.start
@@ -93,9 +95,9 @@ class Rectangle(Item):
     +---+
     """
 
-    def __init__(self, width, height, position=None,
-                 horizontal_border=None, vertical_border=None,
-                 corner=None, fill=None):
+    def __init__(self, width: int, height: int, position: List[int]=None,
+                 horizontal_border: str=None, vertical_border: str=None,
+                 corner: str=None, fill: str=None):
         """Define the shape, position and render options for the Rectangle."""
         self.width = width
         self.height = height
@@ -106,7 +108,7 @@ class Rectangle(Item):
         self.fill = fill or ' '
 
     @property
-    def text(self):
+    def text(self) -> str:
         """Width and height have to be at least 1 in order for it to render."""
         text = ''
         if not self.width or not self.height:
@@ -127,7 +129,7 @@ class Rectangle(Item):
 
         return text
 
-    def _horizontal(self):
+    def _horizontal(self) -> str:
         """Create a horizontal line."""
         text = ''
         for i in range(self.width):

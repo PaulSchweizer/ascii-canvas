@@ -7,9 +7,6 @@ install:
 - pip install -r test-requirements.txt
 jobs:
   include:
-  - stage: prep
-    name: strip_type_hints
-    script: python .travis/strip-type-hints.py
   - stage: test
     name: static_type
     script: nox -s static_type

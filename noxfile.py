@@ -16,7 +16,7 @@ def pytests_with_hints(session):
     session.run("python", "-m", "pytest", "--spec", "-s", os.path.join("tests"))
 
 
-@nox.session(python=["2.7", "3.4", "3.5"])
+@nox.session(python=["2.6", "2.7", "3.4", "3.5"])
 def pytests_no_hints(session):
     session.install("-r", "test-requirements.txt")
 

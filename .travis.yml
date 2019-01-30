@@ -11,8 +11,11 @@ jobs:
     name: static_type
     script: nox -s static_type
   - stage: test
-    name: pytests
-    script: nox -s pytests
+    name: pytests_with_hints
+    script: nox -s pytests_with_hints
+  - stage: test
+    name: pytests_no_hints
+    script: nox -s pytests_no_hints
   - stage: test
     name: coverage
     script: coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml

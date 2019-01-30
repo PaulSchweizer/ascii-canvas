@@ -43,7 +43,7 @@ class Line(Item):
                 abs(self.end[1] - self.start[1]) + 1]
 
     @property
-    def text(self) -> str:
+    def text(self) -> str:  # type: ignore
         """Create a string representing the line.
 
         1. Go half way horizontally
@@ -77,7 +77,7 @@ class Line(Item):
         return text
 
     @property
-    def position(self) -> List[int]:
+    def position(self) -> List[int]:  # type: ignore
         """Offset the position if the start is left of the end."""
         if self.start[1] <= self.end[1]:
             return self.start
@@ -108,7 +108,7 @@ class Rectangle(Item):
         self.fill = fill or ' '
 
     @property
-    def text(self) -> str:
+    def text(self) -> str:  # type: ignore
         """Width and height have to be at least 1 in order for it to render."""
         text = ''
         if not self.width or not self.height:

@@ -1,22 +1,26 @@
 """Aggregate items into a string canvas."""
 from __future__ import print_function
 
+from typing import List
+
+from ascii_canvas.item import Item
+
 
 class Canvas(object):
     """Aggregate string objects onto a 2D string canvas."""
 
     BLANK = ' '
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Hold a list of Items."""
-        self.items = []
+        self.items: List[Item] = []
 
-    def add_item(self, item, index=-1):
+    def add_item(self, item: Item, index: int=-1) -> None:
         """Insert the item at the given index."""
         self.items.insert(index, item)
 
     @property
-    def bbox(self):
+    def bbox(self) -> List[int]:
         """Encompass all items in the bounding box."""
         bbox = [0, 0, 0, 0]
         for item in self.items:
@@ -30,20 +34,21 @@ class Canvas(object):
                 bbox[3] = item.position[1] + item.bbox[3]
         return bbox
 
-    def render(self, line_numbers=False):
+    def render(self, line_numbers: bool=False) -> str:
         """Fill it with placeholders and add the items to it."""
-        canvas = []
-        for row in range(self.bbox[1] + self.bbox[3]):
+        canvas: List[List[str]] = []
+        for _ in range(self.bbox[1] + self.bbox[3]):
             canvas.append([self.BLANK
                            for c in range(self.bbox[0] + self.bbox[2])])
         for item in self.items:
             for i, line in enumerate(item.text.split('\n')):
-                row = item.position[1] + i
+                row_nr = item.position[1] + i
                 start = item.position[0]
                 for j, s in enumerate(line):
                     if s != ' ':
-                        canvas[row][start + j] = s
+                        canvas[row_nr][start + j] = s
         if line_numbers:
+            row: List[str]
             for i, row in enumerate(reversed(canvas)):
                 if i == len(canvas) - 1:
                     row.insert(0, '{0:4d} ^'.format(i))

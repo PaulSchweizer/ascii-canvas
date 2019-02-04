@@ -3,6 +3,7 @@ python:
 - '3.6'
 install:
 - python setup.py install
+- pip install mypy
 - pip install strip-hints
 - pip install -r test-requirements.txt
 jobs:
@@ -23,6 +24,8 @@ jobs:
 
 after_success:
 - python-codacy-coverage -r coverage.xml
+- stubgen ascii_canvas --recursive -o .
+- python strip-type-hints.py
 deploy:
   provider: pypi
   skip_existing: true

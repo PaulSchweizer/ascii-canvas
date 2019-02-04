@@ -6,7 +6,7 @@ with open("README.md") as stream:
     long_description = stream.read()
 
 setup(name='ascii-canvas',
-      version='1.2.2',
+      version='1.2.3',
       author='Paul Schweizer',
       author_email='paulschweizer@gmx.net',
       description='Treat strings like Items on a 2D Canvas.',
@@ -18,8 +18,8 @@ setup(name='ascii-canvas',
               'Programming Language :: Python',
               'Programming Language :: Python :: 2.6',
               'Programming Language :: Python :: 2.7',
-              'Programming Language :: Python :: 3.3',
               'Programming Language :: Python :: 3.4',
               'Programming Language :: Python :: 3.5',
-              'Programming Language :: Python :: 3.6'
+              'Programming Language :: Python :: 3.6',
+              'Programming Language :: Python :: 3.7'
         ])

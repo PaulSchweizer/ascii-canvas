@@ -1,31 +1,47 @@
 language: python
 python:
+- '2.6'
+- '2.7'
+- '3.4'
+- '3.5'
 - '3.6'
+- '3.7'
 install:
 - python setup.py install
-- pip install mypy
-- pip install strip-hints
-- pip install -r test-requirements.txt
+- if [[ "$TRAVIS_PYTHON_VERSION" == "3.6"]]; then
+    pip install mypy
+    pip install strip-hints
+    pip install nox
+  fi
 jobs:
   include:
   - stage: test
     name: static_type
     script: nox -s static_type
+    if: "$TRAVIS_PYTHON_VERSION" = "3.6"
   - stage: test
     name: pytests_with_hints
     script: nox -s pytests_with_hints
+    if: "$TRAVIS_PYTHON_VERSION" = "3.6"
   - stage: test
     name: pytests_no_hints
     script: nox -s pytests_no_hints
+    if: "$TRAVIS_PYTHON_VERSION" = "3.6"
   - stage: test
     name: coverage
     script: coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml
-      --cov-report=term
+        --cov-report=term
+    if: "$TRAVIS_PYTHON_VERSION" = "3.6"
 
 after_success:
 - python-codacy-coverage -r coverage.xml
-- stubgen ascii_canvas --recursive -o .
-- python strip-type-hints.py
+before_deploy:
+  if ! [[ "$TRAVIS_PYTHON_VERSION" IN ("2.6", "2.7", "3.4", "3.5")]]; then
+    stubgen ascii_canvas --recursive -o .
+    python strip-type-hints.py
+  else
+    stubgen ascii_canvas --recursive -o .
+  fi
 deploy:
   provider: pypi
   skip_existing: true

@@ -32,7 +32,7 @@ jobs:
 
 script:
   - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
-      coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml --cov-report=term
+      coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml --cov-report=term;
     fi;
 
 after_success:

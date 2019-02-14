@@ -13,7 +13,7 @@ install:
        pip install mypy
        pip install strip-hints
        pip install nox
-    fi
+    fi;
 
 jobs:
   include:
@@ -43,7 +43,7 @@ before_deploy:
     python strip-type-hints.py
   else
     stubgen ascii_canvas --recursive -o .
-  fi
+  fi;
 
 deploy:
   provider: pypi

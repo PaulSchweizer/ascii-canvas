@@ -8,6 +8,7 @@ python:
 
 install:
   - python setup.py install
+  - pip install -r test-requirements.txt
   - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
        pip install mypy;
        pip install strip-hints;

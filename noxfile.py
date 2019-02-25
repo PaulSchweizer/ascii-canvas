@@ -2,14 +2,14 @@ import nox
 import os
 
 
-@nox.session(python=["3.6", "3.7"])
+@nox.session(python=["3.6"])
 def static_type(session):
     session.install("mypy")
 
     session.run("mypy", "--ignore-missing-imports", "ascii_canvas")
 
 
-@nox.session(python=["3.6", "3.7"])
+@nox.session(python=["3.6"])
 def pytests_with_hints(session):
     session.install("-r", "test-requirements.txt")
 

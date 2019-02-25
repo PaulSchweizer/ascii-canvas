@@ -39,7 +39,7 @@ after_success:
   - python-codacy-coverage -r coverage.xml
 
 before_deploy:
-  if ! [[ env(TRAVIS_PYTHON_VERSION) IN ("2.6", "2.7", "3.4", "3.5")]]; then
+  if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
     stubgen ascii_canvas --recursive -o .;
     python strip-type-hints.py;
   else

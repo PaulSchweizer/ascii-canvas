@@ -1,9 +1,12 @@
 """Aggregate items into a string canvas."""
 from __future__ import print_function
 
-from typing import List
+try:
+    from typing import List
+except Exception:
+    pass
 
-from ascii_canvas.item import Item
+from ascii_canvas import item as item_
 
 
 class Canvas(object):
@@ -13,9 +16,9 @@ class Canvas(object):
 
     def __init__(self) -> None:
         """Hold a list of Items."""
-        self.items: List[Item] = []
+        self.items: List[item_.Item] = []
 
-    def add_item(self, item: Item, index: int=-1) -> None:
+    def add_item(self, item: item_.Item, index: int=-1) -> None:
         """Insert the item at the given index."""
         self.items.insert(index, item)
 

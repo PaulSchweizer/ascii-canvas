@@ -9,7 +9,7 @@ def static_type(session):
     session.run("mypy", "--ignore-missing-imports", "ascii_canvas")
 
 
-@nox.session(python=["2.6", "2.7", "3.4", "3.5", "3.6"])
+@nox.session(python=["2.7", "3.4", "3.5", "3.6"])
 def pytests_no_hints(session):
     session.install("-r", "test-requirements.txt")
 

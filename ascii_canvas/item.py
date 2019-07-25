@@ -1,7 +1,11 @@
 """Items can be placed on the Canvas."""
 from __future__ import print_function
 
-from typing import List
+
+try:
+    from typing import List
+except ImportError:
+    pass
 
 
 class Item(object):
@@ -22,12 +26,10 @@ class Item(object):
 class Line(Item):
     """A line between two points.
 
-    It is drawn like this:
-
-        START ---+
-                 |
-                 |
-                 +--- END
+    START---+
+            |
+            |
+            +---END
     """
 
     def __init__(self, start: List[int], end: List[int]):
@@ -88,7 +90,6 @@ class Line(Item):
 class Rectangle(Item):
     """A rectangle.
 
-    It looks like this:
     +---+
     |   |
     |   |

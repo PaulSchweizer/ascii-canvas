@@ -6,6 +6,9 @@ cover
 # Sublime
 *.sublime-project
 *.sublime-workspace
+.ascii_canvas_tmp/
+.mypy*
+.nox
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

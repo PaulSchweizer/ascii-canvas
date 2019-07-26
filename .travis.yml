@@ -18,25 +18,12 @@ jobs:
       name: satic_type
       script: nox -s static_type
       if: env(TRAVIS_PYTHON_VERSION) = "3.6"
-    - stage: test
-      name: pytests_no_hints
-      script: nox -s pytests_no_hints
 
 script:
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
-      coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml --cov-report=term;
-    fi;
+  - coverage run --source ascii_canvas -m pytest ./tests --cov=scii_canvas --cov-report=xml --cov-report=term
 
 after_success:
   - python-codacy-coverage -r coverage.xml
-
-before_deploy:
-  if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
-    stubgen ascii_canvas --recursive -o .;
-    python strip-type-hints.py;
-  else
-    stubgen ascii_canvas --recursive -o .;
-  fi;
 
 deploy:
   provider: pypi

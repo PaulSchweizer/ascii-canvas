@@ -17,8 +17,8 @@ if sys.version_info.major < 3 or sys.version_info.minor < 6:
     module_dir = os.path.dirname(os.path.realpath(item_path))
     importer.stripper_fun_to_use[module_dir] = stripper.strip_type_hints_from_file
 
-    importer.module_info = (None, item_path)
+    importer.module_info = (None, item_path, None)
     item = importer.load_module(item_path)
 
-    importer.module_info = (None, canvas_path)
+    importer.module_info = (None, canvas_path, None)
     canvas = importer.load_module(canvas_path)

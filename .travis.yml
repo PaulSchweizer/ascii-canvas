@@ -6,9 +6,9 @@ python:
   - '3.6'
 
 install:
-  - python setup.py install  
   - pip install -r requirements.txt
   - pip install -r test-requirements.txt
+  - python setup.py install  
   - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
        pip install mypy;
     fi;
@@ -21,7 +21,7 @@ jobs:
       if: env(TRAVIS_PYTHON_VERSION) = "3.6"
 
 script:
-  - coverage run --source ascii_canvas -m pytest ./tests --cov=scii_canvas --cov-report=xml --cov-report=term
+  - coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml --cov-report=term
 
 after_success:
   - python-codacy-coverage -r coverage.xml

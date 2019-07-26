@@ -31,12 +31,7 @@ after_success:
   - python-codacy-coverage -r coverage.xml
   
 before_deploy:	
- if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then	
-    stubgen ascii_canvas --recursive -o .;	
-    python strip-type-hints.py;	
-  else	
-    stubgen ascii_canvas --recursive -o .;	
-  fi;
+  - python strip-type-hints.py;	
   
 deploy:
   provider: pypi

@@ -26,10 +26,7 @@ def _strip_hints():
             only_assigns_and_defs=False,
         )
 
-        # remove typing imports
-        file_str = re.sub("from typing.*", "", file_str)
-
-        print("temp")
+        print(file_str)
         with open(path, "w") as f:
             f.write(file_str)
 

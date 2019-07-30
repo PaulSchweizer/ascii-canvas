@@ -6,7 +6,7 @@ with open("README.md") as stream:
     long_description = stream.read()
 
 setup(name='ascii-canvas',
-      version='1.3.3',
+      version='1.3.4',
       author='Paul Schweizer',
       author_email='paulschweizer@gmx.net',
       description='Treat strings like Items on a 2D Canvas.',

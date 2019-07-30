@@ -24,7 +24,9 @@ script:
   - coverage run --source ascii_canvas -m pytest ./tests --cov=ascii_canvas --cov-report=xml --cov-report=term
 
 after_success:
-  - python-codacy-coverage -r coverage.xml
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
+       python-codacy-coverage -r coverage.xml;
+    fi;
   
 before_deploy:	
   - python strip-type-hints.py;	

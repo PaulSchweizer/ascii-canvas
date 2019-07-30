@@ -1,1 +1,1 @@
-git+https://github.com/abarker/strip-hints.git
+strip-hints

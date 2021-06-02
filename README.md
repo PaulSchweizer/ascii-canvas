@@ -23,7 +23,7 @@ canvas_.add_item(rect_b)
 canvas_.add_item(rect_c)
 canvas_.add_item(line_a)
 canvas_.add_item(line_b)
-print(canvas_.draw())
+print(canvas_.render())
 ```
 
 Which results in this output:

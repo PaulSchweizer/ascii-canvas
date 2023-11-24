@@ -1,6 +1,4 @@
 [![Version](https://img.shields.io/pypi/v/ascii_canvas.svg)](https://pypi.org/project/ascii_canvas/)
-[![Build Status](https://travis-ci.org/PaulSchweizer/ascii-canvas.svg?branch=master)](https://travis-ci.org/PaulSchweizer/ascii-canvas) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1e97852797d14c679d7c89337b022c92)](https://www.codacy.com/app/paulschweizer/ascii-canvas?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PaulSchweizer/ascii-canvas&amp;utm_campaign=Badge_Grade)[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1e97852797d14c679d7c89337b022c92)](https://www.codacy.com/app/paulschweizer/ascii-canvas?utm_source=github.com&utm_medium=referral&utm_content=PaulSchweizer/ascii-canvas&utm_campaign=Badge_Coverage)
-
 
 # Treat Strings like Items on a 2D Canvas
 

@@ -2,6 +2,7 @@
 cover
 .coverage
 .pytest*
+.vscode
 
 # Sublime
 *.sublime-project

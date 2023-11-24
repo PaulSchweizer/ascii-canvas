@@ -20,4 +20,4 @@ jobs:
           poetry install
       - name: Analysing the code with pylint
         run: |
-          poetry run pylint ./ascii-canvas
+          poetry run pylint ./ascii_canvas

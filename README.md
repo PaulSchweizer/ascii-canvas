@@ -36,8 +36,3 @@ Which results in this output:
            +----|World|----+
                 +-----+
 ```
-
-# Type hints
-
-The library contains Python3.6-style type hints. For lower Python versions the hints are however stripped on the fly with [strip-hints](https://github.com/abarker/strip-hints)!, making ascii-canvas compatible all the way down to Python 2.6.
-Please note that in Python < 3.6 you can NOT import the classes directly due to the stripping of the type hints, so stick with the way that the example imports the module.

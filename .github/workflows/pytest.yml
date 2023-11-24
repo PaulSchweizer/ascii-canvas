@@ -1,0 +1,29 @@
+# .github/workflows/app.yaml
+name: Pytest
+
+on: [push]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.10", "3.x"]
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade poetry wheel
+      - name: Install dependencies
+        run: |
+          poetry install
+      - name: Run tests without coverage
+        if: ${{ matrix.python-version == 2.7 }}
+        run: |
+          poetry run pytest tests

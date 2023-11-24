@@ -25,3 +25,11 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 79
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "duplicate-code",
+    "no-else-raise",
+    "too-many-arguments",
+    "too-many-branches",
+]

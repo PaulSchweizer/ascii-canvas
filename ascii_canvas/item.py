@@ -4,7 +4,7 @@ from __future__ import print_function
 from typing import List, Union
 
 
-class Item(object):
+class Item:
     """Defined by an arbitrary text and a position on the Canvas."""
 
     def __init__(
@@ -29,14 +29,6 @@ class Item(object):
         """Make the bbox encompass the text."""
         lines = self.text.split("\n")
         return [0, 0, max(len(line) for line in lines), len(lines)]
-
-
-# class Item(Item):
-#     def __init__(self, text: str, position: Union[List[int], None] = None):
-#         """Hold a text and a position."""
-#         super().__init__()
-#         self._text = text
-#         self._position = position or [0, 0]
 
 
 class Line(Item):

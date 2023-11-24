@@ -6,7 +6,7 @@ from typing import List
 from ascii_canvas import item as item_
 
 
-class Canvas(object):
+class Canvas:
     """Aggregate string objects onto a 2D string canvas."""
 
     BLANK = " "

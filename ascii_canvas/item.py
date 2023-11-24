@@ -97,8 +97,7 @@ class Line(Item):
         """Offset the position if the start is left of the end."""
         if self.start[1] <= self.end[1]:
             return self.start
-        else:
-            return [self.start[0], self.start[1] - self.bbox[3]]
+        return [self.start[0], self.start[1] - self.bbox[3]]
 
 
 class Rectangle(Item):

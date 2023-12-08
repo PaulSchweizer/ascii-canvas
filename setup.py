@@ -5,7 +5,7 @@ with open("README.md") as stream:
 
 setup(
     name="ascii-canvas",
-    version="2.0.0",
+    version="2.0.1",
     author="Paul Schweizer",
     author_email="paulschweizer@gmx.net",
     description="Treat strings like items on a 2D canvas.",
@@ -13,10 +13,5 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/PaulSchweizer/ascii-canvas",
     packages=find_packages(),
-    classifiers=[
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-    ],
+    classifiers=["Programming Language :: Python"],
 )
